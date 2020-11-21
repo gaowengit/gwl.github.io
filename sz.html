@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东导航条</title>
+    <link rel="stylesheet" href="../作业2/默认样式重置.css">
+    <style>
+        body{
+            font-size: 12px;
+        }
+        .top-bar-apper{
+            width: 100%;
+            background-color:#E3E4E5;
+            line-height: 30px;
+            height: 30px;
+            border-bottom: 1px #ddd solid;
+        }
+        .top-bar{
+            width:1190px;;
+            margin: 0 auto;
+
+        }
+        .top-bar a,
+        .top-bar span{
+            color: #999;
+            text-decoration: none;
+        }
+        .top-bar a:hover{
+            color: #f10215;
+        }
+        .top-bar a.red{
+            color: #f10215;
+        }
+
+        .location{
+            float: left;
+        }
+        .location .city-list{
+            width: 320px;
+            height: 440px;
+            display: none;
+            background-color:white;
+            border: 1px solid rgb(204, 204,204);
+            position: absolute;
+            box-shadow: 0 2px 2px rgba(0,0, 0, 2);
+            z-index: 99;
+        }
+        .location:hover .city-list{
+            display: block;
+        }
+
+        .shortcut{
+            float: right;
+        }
+        .shortcut li{
+            float: left;
+        }
+        .shortcut .line{
+            width: 1px;
+            height: 10px;
+            background-color: #999;
+            margin:  10px 12px ;
+        }
+        li{
+            list-style-type: none;
+        }
+        
+        .city{
+            padding: 0 12px;
+            border: solid white 1px;
+            border-bottom: none;
+        }
+        .city:hover{
+            background-color: white;
+        }
+        .wdjd:hover .jd{
+            display: block;
+        }
+        .jd{
+            height: 280px;
+            width: 300px;
+            display: none;
+            background-color:white;
+            border: 1px solid rgb(204, 204,204);
+            position: absolute;
+            box-shadow: 0 2px 2px rgba(0,0, 0, 2);
+            z-index: 99;
+        }
+        .wd:hover{
+            background-color: white;
+        }
+        .qycg:hover .cg{
+            display: block;
+        }
+        .cg{
+            height: 100px;
+            width:180px;
+            display: none;
+            background-color:white;
+            border: 1px solid rgb(204, 204,204);
+            position: absolute;
+            box-shadow: 0 2px 2px rgba(0,0, 0, 2);
+            z-index: 99;
+        }
+        .qy:hover{
+            background-color: white;
+        }
+        .khfw:hover .fw{
+            display: block;
+        }
+        .fw{
+            height: 400px;
+            width: 150px;
+            display: none;
+            background-color:white;
+            border: 1px solid rgb(204, 204,204);
+            position: absolute;
+            box-shadow: 0 2px 2px rgba(0,0, 0, 2);
+            z-index: 99;
+        }
+        .kh:hover{
+            background-color: white;
+        }
+        .wzdh:hover .dh{
+            display: block;
+        }
+        .dh{
+            height: 280px;
+            width: 100%;
+            display: none;
+            background-color:white;
+            border: 1px solid rgb(204, 204,204);
+            position:absolute;
+            box-shadow: 0 2px 2px rgba(0,0, 0, 2);
+            z-index: 99;
+        }
+        .wz:hover{
+            background-color: white;
+        }
+        .sjjd:hover .d{
+            display: block;
+        }
+        .d{
+            height: 280px;
+            width: 102px;
+            display: none;
+            background-color:white;
+            border: 1px solid rgb(204, 204,204);
+            position:absolute;
+            box-shadow: 0 2px 2px rgba(0,0, 0, 2);
+            z-index: 99;
+        }
+        .sj:hover{
+            background-color: white;
+        }
+        
+        .r{
+            width:90px ;
+            height: 100%;
+            padding-right: 20;
+            float: right;
+        }
+        .l{
+            width:50px ;
+            height: 100%;
+            padding-left: 15px;
+            float: left;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="top-bar-apper">
+        <div class="top-bar" >
+             <div class="location">
+                 <div class="city">
+                     <a href="">湖南</a>
+                 </div>
+                     <div class="city-list"> </div>
+             </div>
+             <ul class="shortcut">
+                 <li>
+                    <a href="https://pro.jd.com/mall/active/2PhLXzBBkbq1jxoq4u3i8X3njKDF/index.html">你好，请登录</a>
+                    <a class="red" href="javascript:regist();">免费注册</a>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li>
+                     <a href="https://order.jd.com/center/list.action">我的订单</a>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li class="wdjd">
+                    <span class="wd">我的京东</span>
+                    <div class="jd"></div>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li>
+                     <a href="https://vip.jd.com/">京东会员</a>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li class="qycg">
+                     <span class="qy">企业采购</span>
+                     <div class="cg"> 
+                         <div class="l">
+                             <a href="https://b.jd.com/">企业购</a><br>
+                             <a href="https://mro.jd.com/">工业品</a><br>
+                             <a href="https://o.jd.com/">礼品卡</a>
+                         </div>
+                         <div class="r">
+                             <a href="https://shang.jd.com/">商用场景馆</a><br>
+                             <a href="https://fs.jd.com/pt/38bAWIDm">丰客多商城</a><br>
+                             <a href="https://pro.jd.com/mall/active/2PhLXzBBkbq1jxoq4u3i8X3njKDF/index.html">微信企业购</a>
+                         </div>
+                     </div>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li class="khfw">
+                    <span class="kh">客户服务</span>
+                    <div class="fw"></div>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li class="wzdh">
+                    <span class="wz">网站导航</span>
+                    <div class="dh"></div>
+                 </li>
+
+                 <li class="line"></li>
+
+                 <li class="sjjd">
+                    <span class="sj">手机京东</span>
+                    <div class="d">
+
+                    </div>
+                 </li>
+                </ul>
+        </div>
+    </div>
+</body>
+</html>
