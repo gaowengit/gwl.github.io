@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://10.64.70.99/PicWall.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>照片墙</title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+            background-image:url(./00.jpg) ;
+            }
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        }
+
+        html, body, ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #wall {
+            position: relative;
+        }
+
+        #wall li {
+            width: 320px;
+            height: 426px;
+            box-shadow: 0 0 15px #000;
+            position: absolute;
+
+            transition: all 1s;
+        }
+
+        #wall li img {
+            width: 320px;
+            height: 426px;
+        }
+
+        #wall li.current {
+            left: 50% !important;
+            top: 50% !important;
+            transform: rotate(0) translate(-50%, -50%) scale(1.2, 1.2) !important;
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <ul id="wall">
+        <li style="left: 380.033px; top: 69.882px; transform: rotate(1.deg);">
+            <img src="./01.jpg">
+        </li>
+        <li style="left: 1.301px; top: 161.58px; transform: rotate(102.652deg);">
+            <img src="./02.jpg">
+        </li><li style="left: 50.166px; top: 37.42px; transform: rotate(313.958deg);">
+            <img src="./03.jpg">
+        </li>
+        <li style="left: 100.307px; top: 10.064px; transform: rotate(138.367deg);">
+            <img src="./04.jpg">
+        </li><li style="left: 150.758px; top: 242.821px; transform: rotate(3.203deg);">
+            <img src="./05.jpg">
+        </li>
+        <li style="left: 150.764px; top: 284.169px; transform: rotate(188.24deg);">
+            <img src="./06.jpg">
+        </li>
+        <li style="left: 200.575px; top: 58.121px; transform: rotate(27.084deg);">
+            <img src="./07.jpg">
+        </li>
+        <li style="left: 59.56px; top: 375.031px; transform: rotate(47.46deg);">
+            <img src="./08.jpg">
+        </li><li style="left: 250.528px; top: 232.676px; transform: rotate(334.107deg);">
+            <img src="./09.jpg">
+        </li><li style="left: 0.800px; top: 233.285px; transform: rotate(58.500deg);">
+            <img src="./10.jpg">
+        </li>
+        <li style="left: 300.821px; top: 1.29017px; transform: rotate(88.802deg);">
+            <img src="./11.jpg">
+        </li>
+        <li style="left: 350.4237px; top: 397.027px; transform: rotate(2.987deg);">
+            <img src="./12.jpg">
+        </li>
+        <li style="left: 400.033px; top: 55.882px; transform: rotate(1.deg);">
+            <img src="./13.jpg">
+        </li>
+        <li style="left: 450.301px; top: 161.58px; transform: rotate(102.652deg);">
+            <img src="./14.jpg">
+        </li><li style="left: 30.166px; top: 37.412px; transform: rotate(313.58deg);">
+            <img src="./15.jpg">
+        </li>
+        <li style="left: 900.307px; top: 10.0634px; transform: rotate(138.367deg);">
+            <img src="./16.jpg">
+        </li><li style="left: 203.758px; top: 242.81px; transform: rotate(3.253deg);">
+            <img src="./17.jpg">
+        </li>
+        <li style="left: 840.764px; top: 284.169px; transform: rotate(188.24deg);">
+            <img src="./18.jpg">
+        </li>
+        <li style="left: 433.575px; top: 58.611px; transform: rotate(27.042deg);">
+            <img src="./19.jpg">
+        </li>
+        <li style="left: 100.546px; top: 375.031px; transform: rotate(47.466deg);">
+            <img src="./20.jpg">
+        </li><li style="left: 371.528px; top: 232.676px; transform: rotate(334.107deg);">
+            <img src="./21.jpg">
+        </li><li style="left: 0.256px; top: 233.285px; transform: rotate(58.500deg);">
+            <img src="./22.jpg">
+        </li>
+        <li style="left: 516.821px; top: 1.200px; transform: rotate(88.302deg);">
+            <img src="./23.jpg">
+        </li>
+        <li style="left: 42.400px; top: 397.027px; transform: rotate(2.17deg);">
+            <img src="./24.jpg">
+        </li>
+    </ul>
+    <script>
+        window.onload = function () {
+            var wall = document.getElementById('wall');
+            // 照片左上角的最大位置
+            var maxWidth = document.documentElement.clientWidth;
+            var maxHeight = document.documentElement.clientHeight;
+
+            // 1. 动态创建 li 标签
+            for (var i = 0; i < 24; ++i) {
+                // 1.1 创建标签
+                var li = document.createElement("li");
+                wall.appendChild(li);
+
+                // 1.2 创建 img 标签
+                var img = document.createElement("img");
+                if (i < 9)
+                    img.src = "0" + (i+1) + ".jpg";
+                else
+                    img.src = "" + (i+1) + ".jpg";
+                li.appendChild(img);
+
+                // 随机位置
+                li.style.left = Math.random()*maxWidth + 'px';
+                li.style.top = Math.random()*maxHeight + 'px';
+
+                // 随机角度
+                 li.style.transform = 'rotate(' + Math.random()*380 + 'deg)';
+            }
+
+            var allLis = wall.children;
+            for (var i = 0; i < allLis.length; ++i)
+             {
+                var li = allLis[i];
+                // 监听点击事件
+                li.onclick = function ()
+                 {
+                    for (var j = 0; j < allLis.length; ++j)
+                        allLis[j].className = '';
+                    this.className = "current";
+                }
+            }
+        }
+    </script>
+
+</body></html>
